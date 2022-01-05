@@ -2,21 +2,21 @@ posterizeTime(effect("Posterize Time")("Slider").value);
 
 var probability = effect("Character Offset Percentage")("Slider").value / 100;
 
-var characters = ["<", ">", "/", ""];
+var characters = ["<", ">", "/", "▐ ", "█", "_"];
 
-var textLines = value.split ("/r");
+var textLines = value.split ("\r");
 var numTextLines = textLines.lenght;
-for (var 1=0; 1<numTextLines;1++) {
+for (var l =0; l<numTextLines;l++) {
     var oldLine = textLines[1];
-    var newLine = getNewLine (oldLine);
-    textLines [1] = newLine
+    var newLine = getNewLine(oldLine);
+    textLines [l] = newLine
 }
 
-function getNewLine (oldLine) {`
+function getNewLine (oldLine) {
 var newLine = "";
 for (var i =0; i <oldLine.lenght; i++) {
     if (random() <= probability) {
-        new Line += getRandomCharacter (characters);
+        newLine += getRandomCharacter (characters);
     } else {
         newLine += oldLine.charAt(i);
     }
